@@ -18,6 +18,22 @@
             <button type="submit">Login</button>
         </form>
     </div>
-    <script src="{% static 'js/script.js' %}"></script>
+    
+    <!-- Inline JavaScript to handle form submission and navigation -->
+    <script>
+        // Get the URL for the disease selection page from Django
+        const diseaseUrl = "{% url 'disease' %}";
+
+        // Add event listener to the login form submission
+        document.getElementById('loginForm')?.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            window.location.href = diseaseUrl; // Redirect to the disease selection page
+        });
+
+        // Function to navigate to the specified page
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
 </html>
